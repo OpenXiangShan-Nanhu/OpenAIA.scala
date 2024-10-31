@@ -1,0 +1,94 @@
+digraph G {
+bgcolor=transparent;
+label="Configuration Paths in an AIA System";
+rankdir=RL;
+splines=ortho;
+subgraph main {
+cluster=True;
+label="";
+pencolor=transparent;
+node [shape=box];
+subgraph aplic {
+bgcolor="#F8CECC";
+cluster=True;
+label=APLIC;
+pencolor="#B85450";
+style=filled;
+m_domain [height=1.5, label="M Domain"];
+s_domain [height=1.5, label="S Domain"];
+}
+
+bus_network [height=7, label=Bus];
+subgraph imsic_hart_0 {
+cluster=True;
+label="";
+pencolor=transparent;
+subgraph imsic_0 {
+bgcolor="#F8CECC";
+cluster=True;
+label="IMSIC 0";
+pencolor="#B85450";
+style=filled;
+imsic_0_mint_file [label="M IntFile"];
+imsic_0_sint_file [label="S IntFile"];
+imsic_0_vsint_file_0 [label="VS IntFile 0"];
+imsic_0_vsint_file__ [label="VS IntFile ..."];
+}
+
+hart_0 [height=3.2, label="Hart 0"];
+}
+
+subgraph imsic_hart__ {
+cluster=True;
+label="";
+pencolor=transparent;
+subgraph imsic__ {
+bgcolor="#F8CECC";
+cluster=True;
+label="IMSIC ...";
+pencolor="#B85450";
+style=filled;
+imsic___mint_file [label="M IntFile"];
+imsic___sint_file [label="S IntFile"];
+imsic___vsint_file_0 [label="VS IntFile 0"];
+imsic___vsint_file__ [label="VS IntFile ..."];
+}
+
+hart__ [height=3.2, label="Hart ..."];
+}
+
+bus_network -> m_domain  [color="black:invis:black"];
+bus_network -> s_domain  [color="black:invis:black"];
+hart_0 -> imsic_0_mint_file;
+imsic_0_mint_file -> bus_network  [color=transparent];
+hart_0 -> imsic_0_sint_file;
+imsic_0_sint_file -> bus_network  [color=transparent];
+hart_0 -> imsic_0_vsint_file_0;
+imsic_0_vsint_file_0 -> bus_network  [color=transparent];
+hart_0 -> imsic_0_vsint_file__;
+imsic_0_vsint_file__ -> bus_network  [color=transparent];
+hart_0 -> bus_network  [color="black:invis:black"];
+hart__ -> imsic___mint_file;
+imsic___mint_file -> bus_network  [color=transparent];
+hart__ -> imsic___sint_file;
+imsic___sint_file -> bus_network  [color=transparent];
+hart__ -> imsic___vsint_file_0;
+imsic___vsint_file_0 -> bus_network  [color=transparent];
+hart__ -> imsic___vsint_file__;
+imsic___vsint_file__ -> bus_network  [color=transparent];
+hart__ -> bus_network  [color="black:invis:black"];
+}
+
+subgraph legend {
+cluster=True;
+label=Legend;
+pencolor=gray;
+"legend_$wire_edge_src" [label=wire, shape=plain];
+"legend_$wire_edge_dst" [label=" ", shape=plain];
+"legend_$wire_edge_src" -> "legend_$wire_edge_dst";
+"legend_$message_edge_src" [label=message, shape=plain];
+"legend_$message_edge_dst" [label=" ", shape=plain];
+"legend_$message_edge_src" -> "legend_$message_edge_dst"  [color="black:invis:black"];
+}
+
+}

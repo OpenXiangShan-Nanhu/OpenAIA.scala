@@ -1,0 +1,190 @@
+digraph G {
+bgcolor=transparent;
+label="IMSIC Logic Arrangement";
+rankdir=LR;
+splines=ortho;
+node [margin=0, shape=box];
+bus [height=20, label="System Bus"];
+subgraph group_0 {
+bgcolor="#DAE8FC";
+cluster=True;
+label="Group 0";
+pencolor="#6C8EBF";
+bus_0 [height=10, label="Group Bus 0"];
+subgraph imsichart_0_0 {
+bgcolor="#D5E8D4";
+cluster=True;
+label="Member 00";
+pencolor="#82B366";
+imsichart_0_0_hart [height=4, label="Hart 00"];
+subgraph imsic_0_0 {
+bgcolor="#F8CECC";
+cluster=True;
+label="IMSIC 00";
+pencolor="#B85450";
+subgraph imsic_0_0_m {
+bgcolor="#FFE6CC";
+cluster=True;
+label="M Level";
+pencolor="#D79B00";
+imsic_0_0_intfile_m [label="M IntFile"];
+}
+
+subgraph imsic_0_0_s {
+bgcolor="#FFE6CC";
+cluster=True;
+label="S Level";
+pencolor="#D79B00";
+imsic_0_0_intfile_s [label="S IntFile"];
+imsic_0_0_intfile_vs_0 [label="VS IntFile 0"];
+imsic_0_0_intfile_vs_1 [label="VS IntFile 1"];
+}
+
+}
+
+imsic_0_0_intfile_m -> imsichart_0_0_hart;
+imsic_0_0_intfile_s -> imsichart_0_0_hart;
+imsic_0_0_intfile_vs_0 -> imsichart_0_0_hart;
+imsic_0_0_intfile_vs_1 -> imsichart_0_0_hart;
+}
+
+bus_0 -> imsic_0_0_intfile_m;
+bus_0 -> imsic_0_0_intfile_s;
+bus_0 -> imsic_0_0_intfile_vs_0;
+bus_0 -> imsic_0_0_intfile_vs_1;
+subgraph imsichart_0_1 {
+bgcolor="#D5E8D4";
+cluster=True;
+label="Member 01";
+pencolor="#82B366";
+imsichart_0_1_hart [height=4, label="Hart 01"];
+subgraph imsic_0_1 {
+bgcolor="#F8CECC";
+cluster=True;
+label="IMSIC 01";
+pencolor="#B85450";
+subgraph imsic_0_1_m {
+bgcolor="#FFE6CC";
+cluster=True;
+label="M Level";
+pencolor="#D79B00";
+imsic_0_1_intfile_m [label="M IntFile"];
+}
+
+subgraph imsic_0_1_s {
+bgcolor="#FFE6CC";
+cluster=True;
+label="S Level";
+pencolor="#D79B00";
+imsic_0_1_intfile_s [label="S IntFile"];
+imsic_0_1_intfile_vs_0 [label="VS IntFile 0"];
+imsic_0_1_intfile_vs_1 [label="VS IntFile 1"];
+}
+
+}
+
+imsic_0_1_intfile_m -> imsichart_0_1_hart;
+imsic_0_1_intfile_s -> imsichart_0_1_hart;
+imsic_0_1_intfile_vs_0 -> imsichart_0_1_hart;
+imsic_0_1_intfile_vs_1 -> imsichart_0_1_hart;
+}
+
+bus_0 -> imsic_0_1_intfile_m;
+bus_0 -> imsic_0_1_intfile_s;
+bus_0 -> imsic_0_1_intfile_vs_0;
+bus_0 -> imsic_0_1_intfile_vs_1;
+}
+
+bus -> bus_0  [color="black:invis:black"];
+subgraph group_1 {
+bgcolor="#DAE8FC";
+cluster=True;
+label="Group 1";
+pencolor="#6C8EBF";
+bus_1 [height=10, label="Group Bus 1"];
+subgraph imsichart_1_0 {
+bgcolor="#D5E8D4";
+cluster=True;
+label="Member 10";
+pencolor="#82B366";
+imsichart_1_0_hart [height=4, label="Hart 10"];
+subgraph imsic_1_0 {
+bgcolor="#F8CECC";
+cluster=True;
+label="IMSIC 10";
+pencolor="#B85450";
+subgraph imsic_1_0_m {
+bgcolor="#FFE6CC";
+cluster=True;
+label="M Level";
+pencolor="#D79B00";
+imsic_1_0_intfile_m [label="M IntFile"];
+}
+
+subgraph imsic_1_0_s {
+bgcolor="#FFE6CC";
+cluster=True;
+label="S Level";
+pencolor="#D79B00";
+imsic_1_0_intfile_s [label="S IntFile"];
+imsic_1_0_intfile_vs_0 [label="VS IntFile 0"];
+imsic_1_0_intfile_vs_1 [label="VS IntFile 1"];
+}
+
+}
+
+imsic_1_0_intfile_m -> imsichart_1_0_hart;
+imsic_1_0_intfile_s -> imsichart_1_0_hart;
+imsic_1_0_intfile_vs_0 -> imsichart_1_0_hart;
+imsic_1_0_intfile_vs_1 -> imsichart_1_0_hart;
+}
+
+bus_1 -> imsic_1_0_intfile_m;
+bus_1 -> imsic_1_0_intfile_s;
+bus_1 -> imsic_1_0_intfile_vs_0;
+bus_1 -> imsic_1_0_intfile_vs_1;
+subgraph imsichart_1_1 {
+bgcolor="#D5E8D4";
+cluster=True;
+label="Member 11";
+pencolor="#82B366";
+imsichart_1_1_hart [height=4, label="Hart 11"];
+subgraph imsic_1_1 {
+bgcolor="#F8CECC";
+cluster=True;
+label="IMSIC 11";
+pencolor="#B85450";
+subgraph imsic_1_1_m {
+bgcolor="#FFE6CC";
+cluster=True;
+label="M Level";
+pencolor="#D79B00";
+imsic_1_1_intfile_m [label="M IntFile"];
+}
+
+subgraph imsic_1_1_s {
+bgcolor="#FFE6CC";
+cluster=True;
+label="S Level";
+pencolor="#D79B00";
+imsic_1_1_intfile_s [label="S IntFile"];
+imsic_1_1_intfile_vs_0 [label="VS IntFile 0"];
+imsic_1_1_intfile_vs_1 [label="VS IntFile 1"];
+}
+
+}
+
+imsic_1_1_intfile_m -> imsichart_1_1_hart;
+imsic_1_1_intfile_s -> imsichart_1_1_hart;
+imsic_1_1_intfile_vs_0 -> imsichart_1_1_hart;
+imsic_1_1_intfile_vs_1 -> imsichart_1_1_hart;
+}
+
+bus_1 -> imsic_1_1_intfile_m;
+bus_1 -> imsic_1_1_intfile_s;
+bus_1 -> imsic_1_1_intfile_vs_0;
+bus_1 -> imsic_1_1_intfile_vs_1;
+}
+
+bus -> bus_1  [color="black:invis:black"];
+}

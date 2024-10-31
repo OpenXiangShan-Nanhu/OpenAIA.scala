@@ -1,0 +1,177 @@
+digraph G {
+bgcolor=transparent;
+label=IMSIC;
+rankdir=LR;
+splines=ortho;
+node [shape=box];
+bus [height=12, label=Bus];
+hart [height=12, label=Hart];
+subgraph imsic {
+bgcolor="#F8CECC";
+cluster=True;
+label=IMSIC;
+pencolor="#B85450";
+imsic_vgein [dir=back, label=vgein];
+subgraph imsic_mint_file {
+bgcolor="#FFE6CC";
+cluster=True;
+label="M IntFile";
+pencolor="#D79B00";
+subgraph imsic_mint_file_mem {
+bgcolor="#F5F5F5";
+cluster=True;
+label="Mem[4KB]";
+pencolor="#666666";
+imsic_mint_file_mem_seteipnum [label="seteipnum[4B]"];
+}
+
+imsic_mint_file_pending [label="pending[1b]"];
+imsic_mint_file_mem_seteipnum -> imsic_mint_file_pending  [color=transparent];
+imsic_mint_file_topei [label=topei];
+imsic_mint_file_mem_seteipnum -> imsic_mint_file_topei  [color=transparent];
+imsic_mint_file_iselect [label=iselect];
+imsic_mint_file_mem_seteipnum -> imsic_mint_file_iselect  [color=transparent];
+imsic_mint_file_ireg [label=ireg];
+imsic_mint_file_mem_seteipnum -> imsic_mint_file_ireg  [color=transparent];
+imsic_mint_file_eips [label="eip[]"];
+imsic_mint_file_eies [label="eie[]"];
+}
+
+imsic_vstopei [height=1.2, label="vstopei[4B]"];
+subgraph imsic_sint_file {
+bgcolor="#FFE6CC";
+cluster=True;
+label="S IntFile";
+pencolor="#D79B00";
+subgraph imsic_sint_file_mem {
+bgcolor="#F5F5F5";
+cluster=True;
+label="Mem[4KB]";
+pencolor="#666666";
+imsic_sint_file_mem_seteipnum [label="seteipnum[4B]"];
+}
+
+imsic_sint_file_pending [label="pending[1b]"];
+imsic_sint_file_mem_seteipnum -> imsic_sint_file_pending  [color=transparent];
+imsic_sint_file_topei [label=topei];
+imsic_sint_file_mem_seteipnum -> imsic_sint_file_topei  [color=transparent];
+imsic_sint_file_iselect [label=iselect];
+imsic_sint_file_mem_seteipnum -> imsic_sint_file_iselect  [color=transparent];
+imsic_sint_file_ireg [label=ireg];
+imsic_sint_file_mem_seteipnum -> imsic_sint_file_ireg  [color=transparent];
+imsic_sint_file_eips [label="eip[]"];
+imsic_sint_file_eies [label="eie[]"];
+}
+
+imsic_vsiselect [height=1.2, label="vsiselect[4B]"];
+subgraph imsic_vsint_file_0 {
+bgcolor="#FFE6CC";
+cluster=True;
+label="VS IntFile 0";
+pencolor="#D79B00";
+subgraph imsic_vsint_file_0_mem {
+bgcolor="#F5F5F5";
+cluster=True;
+label="Mem[4KB]";
+pencolor="#666666";
+imsic_vsint_file_0_mem_seteipnum [label="seteipnum[4B]"];
+}
+
+imsic_vsint_file_0_pending [label="pending[1b]"];
+imsic_vsint_file_0_mem_seteipnum -> imsic_vsint_file_0_pending  [color=transparent];
+imsic_vsint_file_0_topei [label=topei];
+imsic_vsint_file_0_mem_seteipnum -> imsic_vsint_file_0_topei  [color=transparent];
+imsic_vsint_file_0_iselect [label=iselect];
+imsic_vsint_file_0_mem_seteipnum -> imsic_vsint_file_0_iselect  [color=transparent];
+imsic_vsint_file_0_ireg [label=ireg];
+imsic_vsint_file_0_mem_seteipnum -> imsic_vsint_file_0_ireg  [color=transparent];
+imsic_vsint_file_0_eips [label="eip[]"];
+imsic_vsint_file_0_eies [label="eie[]"];
+}
+
+imsic_vsireg [height=1.2, label="vsireg[4B]"];
+subgraph imsic_vsint_file_1 {
+bgcolor="#FFE6CC";
+cluster=True;
+label="VS IntFile 1";
+pencolor="#D79B00";
+subgraph imsic_vsint_file_1_mem {
+bgcolor="#F5F5F5";
+cluster=True;
+label="Mem[4KB]";
+pencolor="#666666";
+imsic_vsint_file_1_mem_seteipnum [label="seteipnum[4B]"];
+}
+
+imsic_vsint_file_1_pending [label="pending[1b]"];
+imsic_vsint_file_1_mem_seteipnum -> imsic_vsint_file_1_pending  [color=transparent];
+imsic_vsint_file_1_topei [label=topei];
+imsic_vsint_file_1_mem_seteipnum -> imsic_vsint_file_1_topei  [color=transparent];
+imsic_vsint_file_1_iselect [label=iselect];
+imsic_vsint_file_1_mem_seteipnum -> imsic_vsint_file_1_iselect  [color=transparent];
+imsic_vsint_file_1_ireg [label=ireg];
+imsic_vsint_file_1_mem_seteipnum -> imsic_vsint_file_1_ireg  [color=transparent];
+imsic_vsint_file_1_eips [label="eip[]"];
+imsic_vsint_file_1_eies [label="eie[]"];
+}
+
+imsic_mtopei [label="mtopei[4B]"];
+imsic_mint_file_topei -> imsic_mtopei;
+imsic_stopei [label="stopei[4B]"];
+imsic_sint_file_topei -> imsic_stopei;
+imsic_vsint_file_0_topei -> imsic_vstopei;
+imsic_vsint_file_1_topei -> imsic_vstopei;
+imsic_pending_0 [label="pending0[1b]"];
+imsic_mint_file_pending -> imsic_pending_0;
+imsic_pending_1 [label="pending1[1b]"];
+imsic_sint_file_pending -> imsic_pending_1;
+imsic_pending_2 [label="pending2[1b]"];
+imsic_vsint_file_0_pending -> imsic_pending_2;
+imsic_pending_3 [label="pending3[1b]"];
+imsic_vsint_file_1_pending -> imsic_pending_3;
+imsic_miselect [label="miselect[4B]"];
+imsic_mint_file_iselect -> imsic_miselect  [dir=back];
+imsic_siselect [label="siselect[4B]"];
+imsic_sint_file_iselect -> imsic_siselect  [dir=back];
+imsic_vsint_file_0_iselect -> imsic_vsiselect  [dir=back];
+imsic_vsint_file_1_iselect -> imsic_vsiselect  [dir=back];
+imsic_mireg [label="mireg[4B]"];
+imsic_mint_file_ireg -> imsic_mireg  [dir=both];
+imsic_sireg [label="sireg[4B]"];
+imsic_sint_file_ireg -> imsic_sireg  [dir=both];
+imsic_vsint_file_0_ireg -> imsic_vsireg  [dir=both];
+imsic_vsint_file_1_ireg -> imsic_vsireg  [dir=both];
+imsic_vgein -> imsic_vstopei  [color=gray, constraint=False];
+imsic_vgein -> imsic_vsiselect  [color=gray, constraint=False];
+imsic_vgein -> imsic_vsireg  [color=gray, constraint=False];
+subgraph vgein_same_rank {
+label="";
+pencolor=transparent;
+samerank=True;
+imsic_vgein [dir=back, label=vgein];
+imsic_vstopei [height=1.2, label="vstopei[4B]"];
+imsic_vsiselect [height=1.2, label="vsiselect[4B]"];
+imsic_vsireg [height=1.2, label="vsireg[4B]"];
+}
+
+}
+
+bus -> imsic_mint_file_mem_seteipnum  [color="black:invis:black"];
+bus -> imsic_sint_file_mem_seteipnum  [color="black:invis:black"];
+bus -> imsic_vsint_file_0_mem_seteipnum  [color="black:invis:black"];
+bus -> imsic_vsint_file_1_mem_seteipnum  [color="black:invis:black"];
+imsic_pending_0 -> hart;
+imsic_pending_1 -> hart;
+imsic_pending_2 -> hart;
+imsic_pending_3 -> hart;
+imsic_mtopei -> hart;
+imsic_stopei -> hart;
+imsic_vstopei -> hart;
+imsic_miselect -> hart  [dir=back];
+imsic_siselect -> hart  [dir=back];
+imsic_vsiselect -> hart  [dir=back];
+imsic_mireg -> hart  [dir=both];
+imsic_sireg -> hart  [dir=both];
+imsic_vsireg -> hart  [dir=both];
+imsic_vgein -> hart  [dir=back];
+}
